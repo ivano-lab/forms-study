@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formalario-animado</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        jQuery(function($){
+            $('section').on('click', 'a', function(e) {
+                $('.card').toggleClass('flipped');
+            })
+        });
+    </script>
+    <style>
+
+        form {
+            font-size: 0.8em;
+            padding: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            box-shadow: inset 2px 2px 2px #eee;
+            font-size: 0.9em;
+            padding: 2px 5px;
+        }
+
+        .container {
+            height: 300px;
+            perspective: 500px;
+            position: relative;
+            width: 200px;
+        }
+
+        .card {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            width: 100%;
+        }
+
+        .card section {
+            backface-visibility: hidden;
+            background-color: #fff;
+            border-radius:5px;
+            position: absolute;
+        }
+
+        .card.flipped {
+            transform: rotateX(180deg);
+        }
+
+        .signup {
+            transform: rotateX(180deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <section class="signup">
+                <form>
+                    <h2>Cadastre-se agora!</h2>
+                    <p>
+                        <label for="account_email">E-mail</label>
+                        <input type="email" id="account_email">
+                    </p>
+                    <p>
+                        <label for="account_password">Senha</label>
+                        <input type="password" id="account_password">
+                    </p>
+                    <p>
+                        <label for="account_password_confirmation">
+                            Confira a sua senha
+                        </label>
+                        <input type="password" id="account_password_confirmation">
+                    </p>
+                    <p>
+                        <p><button>Enviar!</button></p>
+                        <a href="javascript:;" class="toggle">Ja estou cadastrado no site</a>
+                    </p>
+                </form>
+            </section>
+        
+            <section class="signin">
+                <form>
+                    <h2>Entrar no site</h2>
+                    <p>
+                        <label for="user_email">E-mail</label>
+                        <input type="email" id="user_email">
+                    </p>
+                    <p>
+                        <label for="user_password">Senha</label>
+                        <input type="password" id="user_password">
+                    </p>
+                    <p>
+                        <p><button>Enviar!</button></p>
+                        <a href="javascript:;" class="toggle">Quero me cadastrar</a>
+                    </p>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
